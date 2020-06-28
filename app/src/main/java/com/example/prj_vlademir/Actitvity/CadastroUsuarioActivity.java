@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.prj_vlademir.R;
 
-public class cadastroUsuario extends AppCompatActivity {
+public class CadastroUsuarioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

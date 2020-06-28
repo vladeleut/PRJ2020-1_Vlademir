@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Actitvity.cadastroUsuario"></activity>
+        <activity android:name=".Actitvity.PrincipalActivity"></activity>
+        <activity android:name=".Actitvity.CadastroUsuarioActivity" />
         <activity android:name=".Actitvity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
