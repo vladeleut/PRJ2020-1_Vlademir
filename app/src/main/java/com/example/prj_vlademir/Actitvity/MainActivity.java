@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void  abrirTelaPrincipal(){
-        Intent intent = new Intent(MainActivity.this, CadastroUsuarioActivity.class);
+        Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
         startActivity(intent);
     }
 
