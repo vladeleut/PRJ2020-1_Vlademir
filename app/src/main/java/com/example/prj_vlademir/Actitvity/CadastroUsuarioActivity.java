@@ -3,6 +3,7 @@ package com.example.prj_vlademir.Actitvity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -71,6 +72,14 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(CadastroUsuarioActivity.this, "As senhas não são iguais", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadastroUsuarioActivity.this, PrincipalActivity.class);
+                startActivity(intent);
             }
         });
     }
