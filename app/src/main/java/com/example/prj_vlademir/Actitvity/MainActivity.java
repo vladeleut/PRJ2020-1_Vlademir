@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.prj_vlademir.Classes.Usuario;
 import com.example.prj_vlademir.DAO.ConfigFirebase;
+import com.example.prj_vlademir.Helper.Preferences;
 import com.example.prj_vlademir.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     abrirTelaPrincipal();
+                    Preferences preferences = new Preferences(MainActivity.this);
+                    preferences.saveUserPreferences(user.getEmail(), user.getSenha());
                     Toast.makeText(MainActivity.this, "O Login foi efetuado com sucesso", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(MainActivity.this, "Usuário ou senha inválidos. Tente novamente.", Toast.LENGTH_SHORT).show();
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void  abrirTelaPrincipal(){
         Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
+        finish();
         startActivity(intent);
     }
 

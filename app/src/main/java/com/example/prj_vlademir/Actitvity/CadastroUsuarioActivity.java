@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.prj_vlademir.Classes.Usuario;
 import com.example.prj_vlademir.DAO.ConfigFirebase;
+import com.example.prj_vlademir.Helper.Preferences;
 import com.example.prj_vlademir.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -94,6 +95,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     insereUsuario(user);
+                    finish();
+
+                    //desloga o usuário que o firebase logou ao cadastrar
+                    auth.signOut();
+                    abreTelaPrincipal();
                 }else{
                     String erroExcecao = "";
                     try{
@@ -124,5 +130,26 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private void abreTelaPrincipal(){
+        auth = ConfigFirebase.getFirebaseAuth();
+        Preferences preferences = new Preferences(CadastroUsuarioActivity.this);
+        auth.signInWithEmailAndPassword(preferences.getLoggedUserEmail(), preferences.getLoggedUserPasswd()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(CadastroUsuarioActivity.this, PrincipalActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(CadastroUsuarioActivity.this, "Falha!", Toast.LENGTH_LONG).show();
+                    auth.signOut();
+                    Intent intent = new Intent(CadastroUsuarioActivity.this, MainActivity.class);
+                    finish();
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }
