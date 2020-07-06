@@ -3,6 +3,9 @@
     package="com.example.prj_vlademir">
     <!-- o app terá acesso à internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Actitvity.PrincipalActivity"></activity>
+        <activity android:name=".Actitvity.UploadFotoActivity"></activity>
+        <activity android:name=".Actitvity.PrincipalActivity" />
         <activity android:name=".Actitvity.CadastroUsuarioActivity" />
         <activity android:name=".Actitvity.MainActivity">
             <intent-filter>

@@ -81,6 +81,8 @@ public class PrincipalActivity extends AppCompatActivity {
             deslogarUsuario();
         }else if(id == R.id.action_atend_sair){
             deslogarUsuario();
+        }else if(id == R.id.action_insert_profile_pic_atend){
+            updloadFotoPerfil();
         }
 
         return super.onOptionsItemSelected(item);
@@ -96,5 +98,11 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void updloadFotoPerfil(){
+        Intent intent = new Intent(PrincipalActivity.this, UploadFotoActivity.class);
+        finish();
+        startActivity(intent);
     }
 }
