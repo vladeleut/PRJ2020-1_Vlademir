@@ -5,71 +5,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginLeft="16dp"
+    android:background="@drawable/background"
     tools:context=".cadastroUsuario">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastro de Usuário"
-        android:textSize="25sp"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/edtCadEmail"
-        android:hint="E-mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"/>
-    <EditText
-        android:id="@+id/edtCadSenha"
-        android:hint="Senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-    <EditText
-        android:id="@+id/edtCadSenhaConf"
-        android:hint="Repita a senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbAdmin"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Administrador" />
+            android:orientation="vertical"
+            android:layout_margin="16dp">
 
-        <RadioButton
-            android:id="@+id/rbAtend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Atendente" />
-    </RadioGroup>
-        
-    <EditText
-        android:id="@+id/edtCadNome"
-        android:hint="Nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"/>
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar" />
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastro de Usuário"
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
 
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadNome"
+                android:hint="Nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Administrador" />
+
+                <RadioButton
+                    android:id="@+id/rbAtend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Atendente" />
+            </RadioGroup>
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadEmail"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadSenha"
+                android:hint="Senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadSenhaConf"
+                android:hint="Repita a senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar"
+                android:layout_marginTop="15dp"
+                app:bootstrapBrand="warning"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:layout_marginTop="10dp"
+                app:bootstrapBrand="danger"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

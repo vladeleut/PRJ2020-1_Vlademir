@@ -37,6 +37,8 @@ dependencies {
 
     //biblioteca para trabalhar com fotos. alguns métodos são suficientes
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.beardedhen:androidbootstrap:2.3.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
