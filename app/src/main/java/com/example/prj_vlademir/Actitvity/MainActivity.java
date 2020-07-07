@@ -2,7 +2,9 @@ package com.example.prj_vlademir.Actitvity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -93,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrirNovaActivity(Intent intent){
         startActivity(intent);
+    }
+
+    public void permission(){
+        int PERMISSION_ALL = 1;
+        String [] PERMISSION = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        ActivityCompat.requestPermissions(this, PERMISSION, PERMISSION_ALL);
     }
 
 }
