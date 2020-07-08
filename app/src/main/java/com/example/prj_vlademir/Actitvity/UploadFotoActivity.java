@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.prj_vlademir.DAO.ConfigFirebase;
 import com.example.prj_vlademir.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,8 +33,8 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 
 public class UploadFotoActivity extends AppCompatActivity {
-    private Button btnInsertProfilePic;
-    private Button btnCancelProfilePic;
+    private BootstrapButton btnInsertProfilePic;
+    private BootstrapButton btnCancelProfilePic;
     private StorageReference storageReference;
     private FirebaseDatabase database;
     private DatabaseReference ref;
@@ -62,8 +63,8 @@ public class UploadFotoActivity extends AppCompatActivity {
             }
         });
 
-        btnInsertProfilePic = (Button) findViewById(R.id.btnInsertProfilePic);
-        btnCancelProfilePic = (Button) findViewById(R.id.btnCancelProfilePic);
+        btnInsertProfilePic = (BootstrapButton) findViewById(R.id.btnInsertProfilePic);
+        btnCancelProfilePic = (BootstrapButton) findViewById(R.id.btnCancelProfilePic);
 
         btnInsertProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override

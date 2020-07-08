@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.prj_vlademir.Classes.Usuario;
 import com.example.prj_vlademir.DAO.ConfigFirebase;
 import com.example.prj_vlademir.Helper.Preferences;
@@ -24,9 +26,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private EditText txtEmail;
-    private EditText txtSenha;
-    private Button btnLogin;
+    private BootstrapEditText txtEmail;
+    private BootstrapEditText txtSenha;
+    private BootstrapButton btnLogin;
     private Usuario user;
 
 
@@ -35,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtEmail = (EditText) findViewById(R.id.edtEmail);
-        txtSenha = (EditText) findViewById(R.id.edtSenha);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        txtEmail = (BootstrapEditText) findViewById(R.id.edtEmail);
+        txtSenha = (BootstrapEditText) findViewById(R.id.edtSenha);
+        btnLogin = (BootstrapButton) findViewById(R.id.btnLogin);
 
         if(usuarioLogado()){
             Intent intentMinhaConta = new Intent(MainActivity.this, PrincipalActivity.class);
