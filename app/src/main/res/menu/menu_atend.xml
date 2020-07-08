@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_insert_profile_pic_atend"
         android:orderInCategory="100"
-        android:title="Inserir foto de Perfil"
+        android:title="Foto do Perfil"
         app:showAsAction="collapseActionView" />
 
     <item

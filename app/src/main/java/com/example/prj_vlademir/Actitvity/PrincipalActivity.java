@@ -102,7 +102,6 @@ public class PrincipalActivity extends AppCompatActivity {
 
     private void updloadFotoPerfil(){
         Intent intent = new Intent(PrincipalActivity.this, UploadFotoActivity.class);
-        finish();
         startActivity(intent);
     }
 }

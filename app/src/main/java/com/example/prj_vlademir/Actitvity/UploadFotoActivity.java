@@ -16,6 +16,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.prj_vlademir.DAO.ConfigFirebase;
@@ -95,6 +96,8 @@ public class UploadFotoActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
                 loadDefaultPic();
+                Toast.makeText(UploadFotoActivity.this, "Foto atualizada com sucesso!", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
@@ -116,7 +119,7 @@ public class UploadFotoActivity extends AppCompatActivity {
 
     private void loadDefaultPic(){
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageRef = storage.getReferenceFromUrl("gs://vladpjr-d0a60.appspot.com/missing_pic.png");
+        final StorageReference storageRef = storage.getReferenceFromUrl("gs://vladpjr-d0a60.appspot.com/userProfilePic/"+emailLoggedUser+".jpg");
 
         final int heigth = 300;
         final int width = 300;
