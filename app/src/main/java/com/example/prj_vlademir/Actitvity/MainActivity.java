@@ -23,6 +23,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private BootstrapButton btnLogin;
     private Usuario user;
 
+    private DatabaseReference databaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
         txtSenha = (BootstrapEditText) findViewById(R.id.edtSenha);
         btnLogin = (BootstrapButton) findViewById(R.id.btnLogin);
 
+        databaseRef = FirebaseDatabase.getInstance().getReference();
+        auth = FirebaseAuth.getInstance();
+
         if(usuarioLogado()){
-            Intent intentMinhaConta = new Intent(MainActivity.this, PrincipalActivity.class);
-            abrirNovaActivity(intentMinhaConta);
+            String email = auth.getCurrentUser().getEmail().toString();
+            abrirTelaPrincipal(email);
         }else{
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    abrirTelaPrincipal();
+                    abrirTelaPrincipal(user.getEmail());
                     Preferences preferences = new Preferences(MainActivity.this);
                     preferences.saveUserPreferences(user.getEmail(), user.getSenha());
                     Toast.makeText(MainActivity.this, "O Login foi efetuado com sucesso", Toast.LENGTH_SHORT).show();
@@ -80,10 +89,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void  abrirTelaPrincipal(){
-        Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
-        finish();
-        startActivity(intent);
+    private void  abrirTelaPrincipal(String emailUsuario){
+        String email = auth.getCurrentUser().getEmail().toString();
+        databaseRef.child("usuario").orderByChild("email").equalTo(email.toString()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    String tipoUsuarioEmail = postSnapshot.child("tipoUsuario").getValue().toString();
+                    if (tipoUsuarioEmail.equals("Administrador")){
+                        Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else if(tipoUsuarioEmail.equals("Atendente")){
+                        Intent intent = new Intent(MainActivity.this, PrincipalActivityAtendente.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public Boolean usuarioLogado(){

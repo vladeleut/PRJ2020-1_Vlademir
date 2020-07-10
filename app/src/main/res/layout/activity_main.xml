@@ -37,17 +37,25 @@
             app:roundedCorners="true"
             />
 
-        <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/edtSenha"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Senha"
-            android:layout_marginTop="15dp"
-            app:bootstrapSize="xl"
-            app:bootstrapBrand="info"
-            app:roundedCorners="true"
-            />
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimary">
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Senha"
+                android:layout_marginTop="15dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.beardedhen.androidbootstrap.BootstrapButton

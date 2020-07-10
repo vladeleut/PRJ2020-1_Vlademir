@@ -9,11 +9,73 @@
     tools:context=".Actitvity.PrincipalActivity">
 
     <TextView
-        android:id="@+id/txtTipoUsuario"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35sp"
+        android:text="Menu Administrador"
+        android:textColor="@color/bootstrap_gray_dark"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
         android:textStyle="bold"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:gravity="center">
 
+        <LinearLayout
+            android:id="@+id/linnerLayoutAddProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:id="@+id/imgAddProdutos"
+                android:src="@drawable/add_prod" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adicionar Produto"
+                android:textColor="@color/bootstrap_gray_dark"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/bootstrap_gray"/>
+
+        <LinearLayout
+            android:id="@+id/linnerLayoutTotalPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:id="@+id/imgTotalVendas"
+                android:src="@drawable/iconfinder_money_box_172507" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver total de vendas"
+                android:textColor="@color/bootstrap_gray_dark"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

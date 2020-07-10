@@ -101,6 +101,15 @@ public class UploadFotoActivity extends AppCompatActivity {
             }
         });
 
+        btnCancelProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UploadFotoActivity.this, PrincipalActivityAtendente.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     @Override

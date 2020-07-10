@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".CadastroProdutoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastro de Produtos"
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadNomeProduto"
+                android:hint="Nome do Produto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadCodigoProduto"
+                android:hint="codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbProdDisponivel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Disponível" />
+
+                <RadioButton
+                    android:id="@+id/rbProdIndisponivel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Indisponível" />
+            </RadioGroup>
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadDescProduto"
+                android:hint="Descrição: Ingredientes"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/edtCadPrecoProduto"
+                android:hint="Preço"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="10dp"
+                app:bootstrapSize="xl"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnCadastrarProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar"
+                android:layout_marginTop="15dp"
+                app:bootstrapBrand="warning"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnCancelarProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:layout_marginTop="10dp"
+                app:bootstrapBrand="danger"
+                app:bootstrapSize="xl"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
