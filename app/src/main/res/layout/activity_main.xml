@@ -1,75 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".MainActivity">
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <ScrollView
+    <include
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="16dp"
-        >
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/iconfinder_lock_511942" />
-
-
-        <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="E-mail"
-            android:layout_marginTop="15dp"
-            app:bootstrapSize="xl"
-            app:bootstrapBrand="info"
-            app:roundedCorners="true"
-            />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorPrimary">
-
-            <com.beardedhen.androidbootstrap.BootstrapEditText
-                android:id="@+id/edtSenha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Senha"
-                android:layout_marginTop="15dp"
-                app:bootstrapSize="xl"
-                app:bootstrapBrand="info"
-                app:roundedCorners="true"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Entrar"
-            app:bootstrapBrand="success"
-            app:bootstrapSize="xl"
-            app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"
-            android:layout_marginTop="20dp"
-            />
-    </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>

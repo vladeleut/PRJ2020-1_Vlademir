@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prj_vlademir">
-    <!-- o app terá acesso à internet -->
+    package="com.eleut.gerenciadorlanchonete">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/iconfinder_hamburger_49808"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/iconfinder_hamburger_49808"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CadastroProdutoActivity"></activity>
-        <activity android:name=".Actitvity.PrincipalActivityAtendente" />
-        <activity android:name=".Actitvity.CardapioActivity" />
-        <activity android:name=".Actitvity.UploadFotoActivity" />
-        <activity android:name=".Actitvity.PrincipalActivity" />
-        <activity android:name=".Actitvity.CadastroUsuarioActivity" />
-        <activity android:name=".Actitvity.MainActivity">
+        <activity android:name=".Activity.CadastroProdutoActivity"></activity>
+        <activity android:name=".Activity.UploadFotoActivity" />
+        <activity android:name=".Activity.PrincipalActivityAtendente" />
+        <activity android:name=".Activity.PrincipalActivity" />
+        <activity android:name=".Activity.CardapioActivity" />
+        <activity android:name=".Activity.CadastroUsuarioActivity" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
