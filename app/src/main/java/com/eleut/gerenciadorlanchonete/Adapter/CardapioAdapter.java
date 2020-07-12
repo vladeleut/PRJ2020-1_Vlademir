@@ -1,7 +1,6 @@
 package com.eleut.gerenciadorlanchonete.Adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -25,43 +24,47 @@ import java.util.List;
 
 public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.ViewHolder> {
 
-    private List<Produto> mProdutoList;
+    private List<Produto> mCardapioList;
     private Context context;
     private DatabaseReference databaseRef;
     private List<Produto> produtos;
     private Produto todosProdutos;
 
-    public CardapioAdapter (List<Produto> l, Context c){
+    public CardapioAdapter(List<Produto> l, Context c){
         context = c;
-        mProdutoList = l;
+        mCardapioList = l;
 
     }
 
-    @NonNull
     @Override
-    public CardapioAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CardapioAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.lista_todos_produtos, viewGroup, false);
-        return new ViewHolder(itemView);
+        return new CardapioAdapter.ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CardapioAdapter.ViewHolder holder, int position) {
-        final Produto item = mProdutoList.get(position);
+    public void onBindViewHolder(final CardapioAdapter.ViewHolder holder, int position) {
+        final Produto item = mCardapioList.get(position);
         produtos = new ArrayList<>();
 
         databaseRef = FirebaseDatabase.getInstance().getReference();
-        databaseRef.child("cardapio").orderByChild("keyProduto").equalTo(item.getKeyProduto()).addValueEventListener(new ValueEventListener() {
+        databaseRef.child("produtos").orderByChild("keyProduto").equalTo(item.getKeyProduto()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 produtos.clear();
-                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    todosProdutos = postSnapshot.getValue(Produto.class);
+
+                for(DataSnapshot posttSnapshot : dataSnapshot.getChildren()){
+                    todosProdutos = posttSnapshot.getValue(Produto.class);
                     produtos.add(todosProdutos);
+
                     DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                    final int height = (displayMetrics.heightPixels / 4);
-                    final int width = (displayMetrics.widthPixels / 2) ;
-                    Picasso.get().load(todosProdutos.getUrlImgProduto()).resize(width, height).centerCrop().into(holder.fotoProdutoCardapio);
+                    final int height = (displayMetrics.heightPixels / 5);
+                    final int width = (displayMetrics.widthPixels / 3);
+
+                    Picasso.get().load(todosProdutos.getUrlImagem()).resize(width, height).centerInside().into(holder.fotoProdutoCardapio);
+
                 }
+
             }
 
             @Override
@@ -70,12 +73,14 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.ViewHo
             }
         });
 
-        holder.txtNomeProdutoCardapio.setText(item.getNomeProduto());
-        holder.txtNomeProdutoCardapio.setText(item.getDescProduto());
-        holder.txtNomeProdutoCardapio.setText(item.getPreco());
-        holder.linearLayoutProdutoCardapio.setOnClickListener(new View.OnClickListener() {
+        holder.txtNomeProdCardapio.setText(item.getNomeProduto());
+        holder.txtDescProdCardapio.setText(item.getDescProduto());
+        holder.txtPrecoProdCardapio.setText(item.getPreco());
+        holder.txtDispProduto.setText(item.getDisponibilidade());
+
+        holder.linearLayoutProdutosCardapio.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
             }
         });
@@ -83,23 +88,27 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return mProdutoList.size();
+        return mCardapioList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        protected TextView txtNomeProdutoCardapio;
-        protected TextView txtDescProdutoCardapio;
-        protected TextView txtPrecoProdutoCardapio;
-        protected ImageView fotoProdutoCardapio;
-        protected LinearLayout linearLayoutProdutoCardapio;
 
-        public ViewHolder(View itemView){
+        protected TextView txtNomeProdCardapio;
+        protected TextView txtDescProdCardapio;
+        protected TextView txtPrecoProdCardapio;
+        protected TextView txtDispProduto;
+        protected ImageView fotoProdutoCardapio;
+        protected LinearLayout linearLayoutProdutosCardapio;
+
+        public ViewHolder (View itemView){
             super(itemView);
-            txtNomeProdutoCardapio = (TextView)itemView.findViewById(R.id.txtNomeProdCardapio);
-            txtDescProdutoCardapio = (TextView)itemView.findViewById(R.id.txtDescProdCardapio);
-            txtPrecoProdutoCardapio = (TextView)itemView.findViewById(R.id.txtPrecoProdCardapio);
+            txtNomeProdCardapio = (TextView)itemView.findViewById(R.id.txtNomeProdCardapio);
+            txtDescProdCardapio = (TextView)itemView.findViewById(R.id.txtDescProdCardapio);
+            txtPrecoProdCardapio = (TextView)itemView.findViewById(R.id.txtPrecoProdCardapio);
+            txtDispProduto = (TextView)itemView.findViewById(R.id.txtDispProduto);
             fotoProdutoCardapio = (ImageView)itemView.findViewById(R.id.fotoProdCardapio);
-            linearLayoutProdutoCardapio = (LinearLayout)itemView.findViewById(R.id.linearLayoutPesqProdCardapio);
+            linearLayoutProdutosCardapio = (LinearLayout)itemView.findViewById(R.id.linearLayoutProdCardapio);
         }
+
     }
 }

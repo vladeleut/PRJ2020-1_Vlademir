@@ -4,7 +4,7 @@ public class Produto {
     private String keyProduto;
     private String nomeProduto;
     private String descProduto;
-    private String urlImgProduto;
+    private String urlImagem;
     private String preco;
     private String disponibilidade;
 
@@ -40,16 +40,16 @@ public class Produto {
         this.descProduto = descProduto;
     }
 
-    public String getUrlImgProduto() {
-        return urlImgProduto;
+    public String getUrlImagem() {
+        return urlImagem;
     }
 
-    public void setUrlImgProduto(String urlImgProduto) {
-        this.urlImgProduto = urlImgProduto;
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
     public String getPreco() {
-        return preco;
+        return "R$"+ preco;
     }
 
     public void setPreco(String preco) {

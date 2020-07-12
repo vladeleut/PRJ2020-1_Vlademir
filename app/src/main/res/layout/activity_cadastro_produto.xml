@@ -88,6 +88,7 @@
                 app:bootstrapSize="xl"
                 app:bootstrapBrand="info"
                 app:roundedCorners="true"
+
                 />
 
             <com.beardedhen.androidbootstrap.BootstrapButton

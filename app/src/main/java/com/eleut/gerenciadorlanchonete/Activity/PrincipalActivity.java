@@ -65,6 +65,8 @@ public class PrincipalActivity extends AppCompatActivity {
             abrirTelaCadastroUsuario();
         }else if(id == R.id.action_admin_sair){
             deslogarUsuario();
+        }else if(id == R.id.action_admin_abre_cardapio){
+            abreCardapio();
         }
         return super.onOptionsItemSelected(item);
     }

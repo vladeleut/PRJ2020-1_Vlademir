@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/linearLayoutPesqProdCardapio"
+        android:id="@+id/linearLayoutProdCardapio"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -25,26 +25,32 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtNomeProdCardapio"
                 android:text="NOME_PRODUTO"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/txtDescProdCardapio"
                 android:text="DESCRICAO_PRODUTO"
-                android:textSize="11dp"
+                android:textSize="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/txtPrecoProdCardapio"
-                android:text="Preco_PRODUTO"
-                android:textSize="11dp"
+                android:text="PRECO_PRODUTO"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txtDispProduto"
+                android:text="DISPONIB_PRODUTO"
+                android:textSize="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -53,9 +59,9 @@
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
+        android:layout_height="1dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
         android:background="@color/bootstrap_gray"
-        android:focusable="false"
-        android:layout_height="1dp"/>
+        android:focusable="false"/>
 </LinearLayout>
