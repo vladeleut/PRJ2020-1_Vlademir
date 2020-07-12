@@ -33,6 +33,7 @@
                 android:id="@+id/txtNomeProdCardapio"
                 android:text="NOME_PRODUTO"
                 android:textSize="20dp"
+                android:layout_marginTop="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView

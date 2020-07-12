@@ -74,8 +74,8 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.ViewHo
         });
 
         holder.txtNomeProdCardapio.setText(item.getNomeProduto());
-        holder.txtDescProdCardapio.setText(item.getDescProduto());
-        holder.txtPrecoProdCardapio.setText(item.getPreco());
+        holder.txtDescProdCardapio.setText("Descrição: " + item.getDescProduto());
+        holder.txtPrecoProdCardapio.setText("R$ "+item.getPreco());
         holder.txtDispProduto.setText(item.getDisponibilidade());
 
         holder.linearLayoutProdutosCardapio.setOnClickListener(new View.OnClickListener() {

@@ -49,7 +49,7 @@ public class Produto {
     }
 
     public String getPreco() {
-        return "R$"+ preco;
+        return preco;
     }
 
     public void setPreco(String preco) {
