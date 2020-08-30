@@ -36,6 +36,8 @@ public class PrincipalActivityAtendente extends AppCompatActivity {
             deslogarUsuario();
         }else if(id == R.id.action_insert_profile_pic_atend){
             updloadFotoPerfil();
+        }else if(id == R.id.action_ver_meu_perfil){
+            verPerfil();
         }else if(id == R.id.action_atend_abre_cardapio){
             abreCardapio();
         }
@@ -57,6 +59,13 @@ public class PrincipalActivityAtendente extends AppCompatActivity {
     private void abreCardapio(){
         Intent intent = new Intent(PrincipalActivityAtendente.this, CardapioActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    private void verPerfil(){
+        Intent intent = new Intent(PrincipalActivityAtendente.this, MeuPerfilActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

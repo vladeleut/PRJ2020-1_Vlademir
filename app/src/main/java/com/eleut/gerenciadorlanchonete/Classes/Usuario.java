@@ -7,6 +7,16 @@ public class Usuario {
     private String senha;
     private String nome;
     private String tipoUsuario;
+    private String keyUsuario;
+
+
+    public String getKeyUsuario() {
+        return keyUsuario;
+    }
+
+    public void setKeyUsuario(String keyUsuario) {
+        this.keyUsuario = keyUsuario;
+    }
 
     public String getEmail() {
         return email;
