@@ -20,6 +20,12 @@
         app:showAsAction="collapseActionView" />
 
     <item
+        android:id="@+id/action_admin_ver_meu_perfil"
+        android:orderInCategory="300"
+        android:title="Ver Perfil"
+        app:showAsAction="collapseActionView" />
+
+    <item
         android:id="@+id/action_admin_sair"
         android:orderInCategory="1000"
         android:title="Desconectar"

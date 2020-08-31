@@ -78,7 +78,8 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
         holder.linearLayoutPedidoAberto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(PedidoAdapter.this, "It Works!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), PedidoActivity.class);
+                context.startActivity(intent);
             }
         });
     }

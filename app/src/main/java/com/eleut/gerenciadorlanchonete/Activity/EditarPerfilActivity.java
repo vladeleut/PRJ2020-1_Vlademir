@@ -48,7 +48,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
         edtEditNome = (BootstrapEditText)findViewById(R.id.edtEditNome);
         edtEditSenha = (BootstrapEditText)findViewById(R.id.edtEditSenha);
-        edtEditSenhaConf = (BootstrapEditText)findViewById(R.id.edtCadSenhaConf);
+        edtEditSenhaConf = (BootstrapEditText)findViewById(R.id.edtEditSenhaConf);
 
         rbEditAdmin = (RadioButton) findViewById(R.id.rbEditAdmin);
         rbEditAtend = (RadioButton)findViewById(R.id.rbEditAtend);
@@ -78,7 +78,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         btnEditGravar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edtEditSenha.getText().toString().equals(edtEditSenhaConf.getText().toString())){
+                //if(edtEditSenha.getText().toString().equals(edtEditSenhaConf.getText().toString())){
                     Usuario u = new Usuario();
                     u.setNome(edtEditNome.getText().toString());
                     u.setSenha(edtEditSenha.getText().toString());
@@ -92,9 +92,9 @@ public class EditarPerfilActivity extends AppCompatActivity {
                     u.setKeyUsuario(txtBundleKeyUsuario);
                     atualizaDados(u);
 
-                }else{
-                    Toast.makeText(EditarPerfilActivity.this, "As senhas não correspondem", Toast.LENGTH_LONG);
-                }
+                //}else{
+                //    Toast.makeText(EditarPerfilActivity.this, "As senhas não correspondem", Toast.LENGTH_LONG);
+                //}
             }
         });
 
@@ -116,8 +116,9 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private boolean atualizaDados(final Usuario usuario){
         btnEditGravar.setEnabled(false);
         try{
+            Toast.makeText(EditarPerfilActivity.this, "Cheguei aqui!", Toast.LENGTH_LONG);
             ref = ConfigFirebase.getFirebase().child("usuario");
-            atualizarSenha(usuario.getSenha());
+            //atualizarSenha(usuario.getSenha());
             ref.child(txtBundleKeyUsuario).setValue(usuario);
             Toast.makeText(EditarPerfilActivity.this, "Os dados foram atualizados", Toast.LENGTH_LONG);
 

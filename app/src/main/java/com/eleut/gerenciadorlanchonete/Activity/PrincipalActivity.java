@@ -66,7 +66,7 @@ public class PrincipalActivity extends AppCompatActivity {
         }else if(id == R.id.action_admin_sair){
             deslogarUsuario();
         }else if(id == R.id.action_admin_ver_meu_perfil){
-            deslogarUsuario();
+            verPerfil();
         }else if(id == R.id.action_admin_abre_cardapio){
             abreCardapio();
         }

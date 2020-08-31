@@ -5,13 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Activity.PrincipalActivityAtendente">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu Atendente"
         android:textColor="@color/bootstrap_gray_dark"
+        android:background="@color/bootstrap_well_background"
+        android:layout_gravity="center"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
@@ -43,6 +46,7 @@
                     android:layout_height="wrap_content"
                     android:text="Novo Pedido"
                     android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
 
@@ -69,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="Pedidos em aberto"
                     android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
 
@@ -96,6 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="Prontos"
                     android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
 

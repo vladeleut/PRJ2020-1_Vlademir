@@ -5,12 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="@drawable/background"
     android:layout_margin="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@color/bootstrap_well_background"
         android:text="Confirma exclusão?"
         android:textSize="30dp" />
 

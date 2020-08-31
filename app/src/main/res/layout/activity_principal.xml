@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".Activity.PrincipalActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Menu Administrador"
         android:textColor="@color/bootstrap_gray_dark"
+        android:background="@color/bootstrap_well_background"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
@@ -43,6 +46,34 @@
                     android:layout_height="wrap_content"
                     android:text="Adicionar Produto"
                     android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/bootstrap_gray"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutPedidosAbertos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:id="@+id/imgPedidosAbertos"
+                    android:src="@drawable/notes_icon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pedidos em aberto"
+                    android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
 
@@ -70,6 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ver total de vendas"
                     android:textColor="@color/bootstrap_gray_dark"
+                    android:background="@color/bootstrap_well_background"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
 
