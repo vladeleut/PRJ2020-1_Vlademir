@@ -11,7 +11,11 @@
         android:roundIcon="@drawable/iconfinder_hamburger_49808"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MeuPerfilActivity"></activity>
+        <activity android:name=".Activity.PedidoActivity"></activity>
+        <activity android:name=".Activity.PedidosActivity" />
+        <activity android:name=".Activity.CriarPedidoActivity" />
+        <activity android:name=".Activity.EditarPerfilActivity" />
+        <activity android:name=".Activity.MeuPerfilActivity" />
         <activity android:name=".Activity.CadastroProdutoActivity" />
         <activity android:name=".Activity.UploadFotoActivity" />
         <activity android:name=".Activity.PrincipalActivityAtendente" />

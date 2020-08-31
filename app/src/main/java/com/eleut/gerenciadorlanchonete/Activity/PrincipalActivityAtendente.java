@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.eleut.gerenciadorlanchonete.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,14 +15,37 @@ import com.google.firebase.auth.FirebaseAuth;
 public class PrincipalActivityAtendente extends AppCompatActivity {
 
     private FirebaseAuth auth;
+    private LinearLayout linearLayoutNovoPedido;
+    private LinearLayout linearLayoutPedidosAbertos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_atendente);
+        linearLayoutNovoPedido      = (LinearLayout)findViewById(R.id.linearLayoutNovoPedido);
+        linearLayoutPedidosAbertos  = (LinearLayout)findViewById(R.id.linearLayoutPedidosAbertos);
+
+        linearLayoutNovoPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abreActivityCriarPedido();
+            }
+        });
+
+        linearLayoutPedidosAbertos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abreActivityPedidos();
+            }
+        });
 
 
         auth = FirebaseAuth.getInstance();
+    }
+
+    private void abreActivityCriarPedido() {
+        Intent intent = new Intent(PrincipalActivityAtendente.this, CriarPedidoActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -64,6 +89,12 @@ public class PrincipalActivityAtendente extends AppCompatActivity {
 
     private void verPerfil(){
         Intent intent = new Intent(PrincipalActivityAtendente.this, MeuPerfilActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void abreActivityPedidos(){
+        Intent intent = new Intent(PrincipalActivityAtendente.this, PedidosActivity.class);
         startActivity(intent);
         finish();
     }

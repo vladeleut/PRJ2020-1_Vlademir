@@ -65,6 +65,8 @@ public class PrincipalActivity extends AppCompatActivity {
             abrirTelaCadastroUsuario();
         }else if(id == R.id.action_admin_sair){
             deslogarUsuario();
+        }else if(id == R.id.action_admin_ver_meu_perfil){
+            deslogarUsuario();
         }else if(id == R.id.action_admin_abre_cardapio){
             abreCardapio();
         }
@@ -93,5 +95,10 @@ public class PrincipalActivity extends AppCompatActivity {
         finish();
     }
 
+    private void verPerfil(){
+        Intent intent = new Intent(PrincipalActivity.this, MeuPerfilActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 }

@@ -36,6 +36,12 @@ public class MeuPerfilActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private DatabaseReference ref;
+
+    private String txtBundleOrigem = "";
+    private String txtBundleNome = "";
+    private String txtBundleTipo = "";
+    private String txtBundleKeyUsuario = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +78,7 @@ public class MeuPerfilActivity extends AppCompatActivity {
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                editarPerfilUsuario();
             }
         });
 
@@ -158,5 +164,37 @@ public class MeuPerfilActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    private void editarPerfilUsuario(){
+        String emailLoggedUser = auth.getCurrentUser().getEmail();
+        ref = ConfigFirebase.getFirebase();
+
+        ref.child("usuario").orderByChild("email").equalTo(emailLoggedUser).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    Usuario user = postSnapshot.getValue(Usuario.class);
+
+                    final Intent intent = new Intent(MeuPerfilActivity.this, EditarPerfilActivity.class);
+                    final Bundle bundle = new Bundle();
+                    bundle.putString("origem", "editarUsuario");
+                    bundle.putString("nome", user.getNome());
+                    bundle.putString("email", user.getEmail());
+                    bundle.putString("tipo", user.getTipoUsuario());
+                    bundle.putString("keyUsuario", user.getKeyUsuario());
+
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

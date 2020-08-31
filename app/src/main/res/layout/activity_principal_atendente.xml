@@ -28,7 +28,7 @@
             android:gravity="center">
 
             <LinearLayout
-                android:id="@+id/linnerLayoutVerPedidos"
+                android:id="@+id/linearLayoutNovoPedido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -37,11 +37,37 @@
                     android:layout_width="150sp"
                     android:layout_height="150sp"
                     android:id="@+id/imgAddProdutos"
-                    android:src="@drawable/add_prod" />
+                    android:src="@drawable/notes_pencil" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pedidos"
+                    android:text="Novo Pedido"
+                    android:textColor="@color/bootstrap_gray_dark"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/bootstrap_gray"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutPedidosAbertos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:id="@+id/imgPedidosAbertos"
+                    android:src="@drawable/notes_icon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pedidos em aberto"
                     android:textColor="@color/bootstrap_gray_dark"
                     android:textSize="25dp"
                     android:textStyle="bold"/>

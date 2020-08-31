@@ -24,18 +24,23 @@
                 android:layout_height="100dp"
                 android:src="@drawable/ic_lock_open_black_24dp" />
 
-
-            <com.beardedhen.androidbootstrap.BootstrapEditText
-                android:id="@+id/edtEmail"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textEmailAddress"
-                android:hint="E-mail"
-                android:layout_marginTop="15dp"
-                app:bootstrapSize="xl"
-                app:bootstrapBrand="info"
-                app:roundedCorners="true"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="E-mail"
+                    android:layout_marginTop="15dp"
+                    app:bootstrapSize="xl"
+                    app:bootstrapBrand="info"
+                    app:roundedCorners="true"
+                    />
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
